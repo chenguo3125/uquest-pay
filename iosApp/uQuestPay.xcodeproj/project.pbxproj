@@ -1,0 +1,303 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA0000000000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000001 /* AppDelegate.swift */; };
+		AA0000000000000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000002 /* SceneDelegate.swift */; };
+		AA0000000000000000000003 /* MockCampusData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000003 /* MockCampusData.swift */; };
+		AA0000000000000000000004 /* TransactionRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000004 /* TransactionRowCell.swift */; };
+		AA0000000000000000000005 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000005 /* DashboardViewController.swift */; };
+		AA0000000000000000000006 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000006 /* TransferViewController.swift */; };
+		AA0000000000000000000007 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000007 /* TransactionsViewController.swift */; };
+		AA0000000000000000000008 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000008 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BB0000000000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BB0000000000000000000002 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BB0000000000000000000003 /* MockCampusData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCampusData.swift; sourceTree = "<group>"; };
+		BB0000000000000000000004 /* TransactionRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRowCell.swift; sourceTree = "<group>"; };
+		BB0000000000000000000005 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
+		BB0000000000000000000006 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
+		BB0000000000000000000007 /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
+		BB0000000000000000000008 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BB0000000000000000000009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB000000000000000000000A /* uQuestPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uQuestPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CC0000000000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD0000000000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				DD0000000000000000000002 /* App */,
+				DD0000000000000000000003 /* UI */,
+				BB0000000000000000000008 /* Assets.xcassets */,
+				DD0000000000000000000004 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD0000000000000000000002 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BB0000000000000000000001 /* AppDelegate.swift */,
+				BB0000000000000000000002 /* SceneDelegate.swift */,
+				BB0000000000000000000009 /* Info.plist */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		DD0000000000000000000003 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				BB0000000000000000000003 /* MockCampusData.swift */,
+				BB0000000000000000000004 /* TransactionRowCell.swift */,
+				DD0000000000000000000005 /* Dashboard */,
+				DD0000000000000000000006 /* Transfer */,
+				DD0000000000000000000007 /* Transactions */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		DD0000000000000000000004 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BB000000000000000000000A /* uQuestPay.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD0000000000000000000005 /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				BB0000000000000000000005 /* DashboardViewController.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		DD0000000000000000000006 /* Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				BB0000000000000000000006 /* TransferViewController.swift */,
+			);
+			path = Transfer;
+			sourceTree = "<group>";
+		};
+		DD0000000000000000000007 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				BB0000000000000000000007 /* TransactionsViewController.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EE0000000000000000000001 /* uQuestPay */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF0000000000000000000003 /* Build configuration list for PBXNativeTarget "uQuestPay" */;
+			buildPhases = (
+				EE0000000000000000000002 /* Sources */,
+				CC0000000000000000000001 /* Frameworks */,
+				EE0000000000000000000003 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = uQuestPay;
+			productName = uQuestPay;
+			productReference = BB000000000000000000000A /* uQuestPay.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EE0000000000000000000004 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1540;
+				LastUpgradeCheck = 1540;
+				TargetAttributes = {
+					EE0000000000000000000001 = {
+						CreatedOnToolsVersion = 15.4;
+					};
+				};
+			};
+			buildConfigurationList = FF0000000000000000000004 /* Build configuration list for PBXProject "uQuestPay" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD0000000000000000000001;
+			productRefGroup = DD0000000000000000000004 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EE0000000000000000000001 /* uQuestPay */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EE0000000000000000000003 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000000008 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EE0000000000000000000002 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA0000000000000000000001 /* AppDelegate.swift in Sources */,
+				AA0000000000000000000002 /* SceneDelegate.swift in Sources */,
+				AA0000000000000000000003 /* MockCampusData.swift in Sources */,
+				AA0000000000000000000004 /* TransactionRowCell.swift in Sources */,
+				AA0000000000000000000005 /* DashboardViewController.swift in Sources */,
+				AA0000000000000000000006 /* TransferViewController.swift in Sources */,
+				AA0000000000000000000007 /* TransactionsViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FF0000000000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FF0000000000000000000002 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF0000000000000000000005 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "uQuest Pay";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uquest.pay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FF0000000000000000000006 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "uQuest Pay";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.uquest.pay;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF0000000000000000000003 /* Build configuration list for PBXNativeTarget "uQuestPay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF0000000000000000000005 /* Debug */,
+				FF0000000000000000000006 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF0000000000000000000004 /* Build configuration list for PBXProject "uQuestPay" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF0000000000000000000001 /* Debug */,
+				FF0000000000000000000002 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EE0000000000000000000004 /* Project object */;
+}
