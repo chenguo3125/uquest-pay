@@ -1,11 +1,13 @@
 import UIKit
 
 final class TransactionsViewController: UIViewController {
-    private let snapshot: MockCampusSnapshot
+    private let service: PaymentService
+    private var snapshot: MockCampusSnapshot
     private let tableView = UITableView(frame: .zero, style: .plain)
 
-    init(snapshot: MockCampusSnapshot) {
-        self.snapshot = snapshot
+    init(service: PaymentService) {
+        self.service = service
+        self.snapshot = service.snapshot()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -31,6 +33,12 @@ final class TransactionsViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        snapshot = service.snapshot()
+        tableView.reloadData()
     }
 }
 

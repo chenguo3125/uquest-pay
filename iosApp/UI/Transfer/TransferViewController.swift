@@ -1,7 +1,7 @@
 import UIKit
 
 final class TransferViewController: UIViewController {
-    private let snapshot: MockCampusSnapshot
+    private let service: PaymentService
     private var selectedPeer: MockPeer?
 
     private let recipientButton = UIButton(type: .system)
@@ -9,9 +9,9 @@ final class TransferViewController: UIViewController {
     private let noteField = UITextField()
     private let sendButton = UIButton(type: .system)
 
-    init(snapshot: MockCampusSnapshot) {
-        self.snapshot = snapshot
-        self.selectedPeer = snapshot.peers.first
+    init(service: PaymentService) {
+        self.service = service
+        self.selectedPeer = service.snapshot().peers.first
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -89,7 +89,7 @@ final class TransferViewController: UIViewController {
         recipientButton.configuration = config
         recipientButton.contentHorizontalAlignment = .leading
         recipientButton.menu = UIMenu(
-            children: snapshot.peers.map { peer in
+            children: service.snapshot().peers.map { peer in
                 UIAction(title: peer.displayName) { [weak self] _ in
                     self?.selectedPeer = peer
                     self?.refreshRecipientTitle()
@@ -106,12 +106,19 @@ final class TransferViewController: UIViewController {
     }
 
     @objc private func sendTapped() {
-        let alert = UIAlertController(
-            title: "Payment not connected",
-            message: "Transfers are not wired yet. This screen is a UI shell.",
-            preferredStyle: .alert
-        )
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
+        guard let peer = selectedPeer else { return }
+        let note = noteField.text
+        switch service.send(toWalletId: peer.id, amountText: amountField.text ?? "", note: note) {
+        case .success:
+            navigationController?.popViewController(animated: true)
+        case .failure(let error):
+            let alert = UIAlertController(
+                title: "Could not send",
+                message: error.localizedDescription,
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
+        }
     }
 }

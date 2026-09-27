@@ -15,6 +15,7 @@
 		AA0000000000000000000006 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000006 /* TransferViewController.swift */; };
 		AA0000000000000000000007 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000007 /* TransactionsViewController.swift */; };
 		AA0000000000000000000008 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000008 /* Assets.xcassets */; };
+		AA0000000000000000000009 /* PaymentService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB000000000000000000000B /* PaymentService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		BB0000000000000000000008 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB0000000000000000000009 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB000000000000000000000A /* uQuestPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = uQuestPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB000000000000000000000B /* PaymentService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +48,7 @@
 			children = (
 				DD0000000000000000000002 /* App */,
 				DD0000000000000000000003 /* UI */,
+				DD0000000000000000000008 /* Services */,
 				BB0000000000000000000008 /* Assets.xcassets */,
 				DD0000000000000000000004 /* Products */,
 			);
@@ -105,6 +108,14 @@
 			path = Transactions;
 			sourceTree = "<group>";
 		};
+		DD0000000000000000000008 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				BB000000000000000000000B /* PaymentService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -112,6 +123,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FF0000000000000000000003 /* Build configuration list for PBXNativeTarget "uQuestPay" */;
 			buildPhases = (
+				EE0000000000000000000005 /* Compile Kotlin Framework */,
 				EE0000000000000000000002 /* Sources */,
 				CC0000000000000000000001 /* Frameworks */,
 				EE0000000000000000000003 /* Resources */,
@@ -181,10 +193,33 @@
 				AA0000000000000000000005 /* DashboardViewController.swift in Sources */,
 				AA0000000000000000000006 /* TransferViewController.swift in Sources */,
 				AA0000000000000000000007 /* TransactionsViewController.swift in Sources */,
+				AA0000000000000000000009 /* PaymentService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EE0000000000000000000005 /* Compile Kotlin Framework */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Compile Kotlin Framework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		FF0000000000000000000001 /* Debug */ = {
@@ -231,6 +266,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "uQuest Pay";
@@ -257,6 +297,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
+				);
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = App/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "uQuest Pay";

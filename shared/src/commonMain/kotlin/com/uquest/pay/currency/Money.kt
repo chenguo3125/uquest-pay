@@ -18,12 +18,12 @@ data class Money(
 
     operator fun plus(other: Money): Money {
         requireSameCurrency(other)
-        return Money(currency, Math.addExact(minorUnits, other.minorUnits))
+        return Money(currency, addExact(minorUnits, other.minorUnits))
     }
 
     operator fun minus(other: Money): Money {
         requireSameCurrency(other)
-        return Money(currency, Math.subtractExact(minorUnits, other.minorUnits))
+        return Money(currency, subtractExact(minorUnits, other.minorUnits))
     }
 
     fun requireSameCurrency(other: Money) {
@@ -45,7 +45,7 @@ data class Money(
 
         fun ofMajor(majorUnits: Long, currency: Currency): Money {
             val factor = scaleFactor(currency.scale)
-            return Money(currency, Math.multiplyExact(majorUnits, factor))
+            return Money(currency, multiplyExact(majorUnits, factor))
         }
 
         /**
@@ -73,10 +73,10 @@ data class Money(
             if (fraction.length > currency.scale) return null
             val paddedFraction = fraction.padEnd(currency.scale, '0')
             return try {
-                val wholeMinor = Math.multiplyExact(whole.toLong(), scaleFactor(currency.scale))
+                val wholeMinor = multiplyExact(whole.toLong(), scaleFactor(currency.scale))
                 val fractionMinor = if (paddedFraction.isEmpty()) 0L else paddedFraction.toLong()
-                val unsignedMinor = Math.addExact(wholeMinor, fractionMinor)
-                val minor = if (negative) Math.subtractExact(0L, unsignedMinor) else unsignedMinor
+                val unsignedMinor = addExact(wholeMinor, fractionMinor)
+                val minor = if (negative) subtractExact(0L, unsignedMinor) else unsignedMinor
                 Money(currency, minor)
             } catch (_: ArithmeticException) {
                 null
@@ -88,7 +88,7 @@ data class Money(
         fun scaleFactor(scale: Int): Long {
             var factor = 1L
             repeat(scale) {
-                factor = Math.multiplyExact(factor, 10L)
+                factor = multiplyExact(factor, 10L)
             }
             return factor
         }
@@ -101,3 +101,34 @@ class InvalidAmountException(val raw: String) : IllegalArgumentException(
 
 fun Money.validatedPositive(): FailureReason? =
     if (isPositive) null else FailureReason.InvalidAmount
+
+internal fun addExact(a: Long, b: Long): Long {
+    val result = a + b
+    if ((a xor result) and (b xor result) < 0L) {
+        throw ArithmeticException("long overflow")
+    }
+    return result
+}
+
+internal fun subtractExact(a: Long, b: Long): Long {
+    val result = a - b
+    if ((a xor b) and (a xor result) < 0L) {
+        throw ArithmeticException("long overflow")
+    }
+    return result
+}
+
+internal fun multiplyExact(a: Long, b: Long): Long {
+    val result = a * b
+    val absA = if (a >= 0) a else -a
+    val absB = if (b >= 0) b else -b
+    if ((absA or absB) ushr 31 != 0L) {
+        if (a == Long.MIN_VALUE && b == -1L) {
+            throw ArithmeticException("long overflow")
+        }
+        if (b != 0L && result / b != a) {
+            throw ArithmeticException("long overflow")
+        }
+    }
+    return result
+}

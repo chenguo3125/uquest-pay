@@ -1,18 +1,21 @@
 import UIKit
 
 final class DashboardViewController: UIViewController {
-    private let snapshot: MockCampusSnapshot
+    private let service: PaymentService
+    private var snapshot: MockCampusSnapshot
 
     private let balanceTitleLabel = UILabel()
     private let balanceValueLabel = UILabel()
+    private let userLabel = UILabel()
     private let sendButton = UIButton(type: .system)
     private let recentHeaderLabel = UILabel()
     private let seeAllButton = UIButton(type: .system)
     private let tableView = UITableView(frame: .zero, style: .plain)
     private var tableHeightConstraint: NSLayoutConstraint?
 
-    init(snapshot: MockCampusSnapshot) {
-        self.snapshot = snapshot
+    init(service: PaymentService) {
+        self.service = service
+        self.snapshot = service.snapshot()
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -26,6 +29,12 @@ final class DashboardViewController: UIViewController {
         navigationItem.largeTitleDisplayMode = .always
         view.backgroundColor = .systemBackground
         buildLayout()
+        applySnapshot()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        applySnapshot()
     }
 
     override func viewDidLayoutSubviews() {
@@ -34,17 +43,22 @@ final class DashboardViewController: UIViewController {
         tableHeightConstraint?.constant = tableView.contentSize.height
     }
 
+    private func applySnapshot() {
+        snapshot = service.snapshot()
+        balanceValueLabel.text = snapshot.availableBalanceText
+        userLabel.text = snapshot.currentUserName
+        tableView.reloadData()
+        view.setNeedsLayout()
+    }
+
     private func buildLayout() {
         balanceTitleLabel.text = "Available balance"
         balanceTitleLabel.font = .preferredFont(forTextStyle: .subheadline)
         balanceTitleLabel.textColor = .secondaryLabel
 
-        balanceValueLabel.text = snapshot.availableBalanceText
         balanceValueLabel.font = .preferredFont(forTextStyle: .largeTitle)
         balanceValueLabel.adjustsFontForContentSizeCategory = true
 
-        let userLabel = UILabel()
-        userLabel.text = snapshot.currentUserName
         userLabel.font = .preferredFont(forTextStyle: .footnote)
         userLabel.textColor = .secondaryLabel
 
@@ -119,12 +133,12 @@ final class DashboardViewController: UIViewController {
     }
 
     @objc private func openTransfer() {
-        let transfer = TransferViewController(snapshot: snapshot)
+        let transfer = TransferViewController(service: service)
         navigationController?.pushViewController(transfer, animated: true)
     }
 
     @objc private func openHistory() {
-        let history = TransactionsViewController(snapshot: snapshot)
+        let history = TransactionsViewController(service: service)
         navigationController?.pushViewController(history, animated: true)
     }
 }
