@@ -2,7 +2,7 @@ import UIKit
 
 final class TransferViewController: UIViewController {
     private let service: PaymentService
-    private var selectedPeer: MockPeer?
+    private var selectedPeer: Peer?
 
     private let recipientButton = UIButton(type: .system)
     private let amountField = UITextField()
@@ -108,13 +108,19 @@ final class TransferViewController: UIViewController {
     @objc private func sendTapped() {
         guard let peer = selectedPeer else { return }
         let note = noteField.text
-        switch service.send(toWalletId: peer.id, amountText: amountField.text ?? "", note: note) {
-        case .success:
+        let outcome = service.send(
+            toWalletId: peer.id,
+            amountText: amountField.text ?? "",
+            note: note,
+            idempotencyKey: UUID().uuidString
+        )
+        switch outcome.status {
+        case .completed, .processing:
             navigationController?.popViewController(animated: true)
-        case .failure(let error):
+        case .failed:
             let alert = UIAlertController(
                 title: "Could not send",
-                message: error.localizedDescription,
+                message: outcome.failure?.message ?? "Could not complete this transfer",
                 preferredStyle: .alert
             )
             alert.addAction(UIAlertAction(title: "OK", style: .default))

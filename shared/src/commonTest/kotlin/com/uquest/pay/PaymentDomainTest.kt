@@ -31,11 +31,13 @@ class PaymentDomainTest {
         amount: Long = 100,
         key: String = "key-1",
         to: WalletId = bob,
+        note: String? = null,
     ) = TransferIntent(
         fromWalletId = alice,
         toWalletId = to,
         amount = Money.ofMinor(amount, Currency.UQC),
         idempotencyKey = IdempotencyKey(key),
+        note = note,
     )
 
     @Test
@@ -143,6 +145,14 @@ class PaymentDomainTest {
     fun conflictingIdempotencyPayloadIsRejected() {
         val first = domain.submitTransfer(state(), intent()) as DomainResult.Ok
         val conflict = domain.submitTransfer(first.state, intent(amount = 50))
+        assertIs<DomainResult.Err>(conflict)
+        assertIs<FailureReason.IdempotencyConflict>(conflict.reason)
+    }
+
+    @Test
+    fun conflictingIdempotencyNoteIsRejected() {
+        val first = domain.submitTransfer(state(), intent(note = "lunch")) as DomainResult.Ok
+        val conflict = domain.submitTransfer(first.state, intent(note = "dinner"))
         assertIs<DomainResult.Err>(conflict)
         assertIs<FailureReason.IdempotencyConflict>(conflict.reason)
     }

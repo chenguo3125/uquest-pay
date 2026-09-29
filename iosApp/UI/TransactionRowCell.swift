@@ -17,7 +17,7 @@ final class TransactionRowCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func bind(_ row: MockTransactionRow) {
+    func bind(_ row: TransactionRow) {
         counterpartyLabel.text = row.counterparty
         dateLabel.text = row.date
         amountLabel.text = row.amountText

@@ -214,8 +214,14 @@ class PaymentDomain(
         event: TransactionEvent,
     ): DomainResult = DomainResult.Err(FailureReason.IllegalTransition(tx.status, event), state)
 
+    /**
+     * Request identity is fromWalletId + toWalletId + amount + note.
+     * [TransferIntent.note] is part of identity: the same idempotency key
+     * with a different note is [FailureReason.IdempotencyConflict].
+     */
     private fun sameIntent(existing: Transaction, intent: TransferIntent): Boolean =
         existing.fromWalletId == intent.fromWalletId &&
             existing.toWalletId == intent.toWalletId &&
-            existing.amount == intent.amount
+            existing.amount == intent.amount &&
+            existing.note == intent.note
 }

@@ -1,0 +1,38 @@
+uQuestPay/
+│
+├── iosApp/
+│   ├── App/
+│   ├── UI/
+│   │   ├── Dashboard/
+│   │   ├── Transfer/
+│   │   ├── Transactions/
+│   │   └── ReceiptScanner/
+│   │
+│   ├── Data/
+│   │   ├── CoreData/
+│   │   └── Repositories/
+│   │
+│   └── Services/
+│       ├── PaymentService.swift
+│       └── AIService.swift
+│
+├── shared/
+│   └── src/
+│       └── commonMain/
+│           ├── model/
+│           ├── ledger/
+│           ├── transaction/
+│           ├── currency/
+│           └── validation/
+│
+├── mock-server/
+│
+├── tests/
+│
+├── docs/
+│   ├── architecture.md
+│   ├── concurrency.md
+│   ├── ai-workflow.md
+│   └── decisions/
+│
+└── README.md

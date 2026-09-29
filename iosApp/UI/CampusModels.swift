@@ -1,11 +1,11 @@
 import Foundation
 
-struct MockPeer: Equatable {
+struct Peer: Equatable {
     let id: String
     let displayName: String
 }
 
-struct MockTransactionRow: Equatable {
+struct TransactionRow: Equatable {
     let id: String
     let counterparty: String
     let amountMinorUnits: Int
@@ -13,26 +13,26 @@ struct MockTransactionRow: Equatable {
     let date: String
 
     var amountText: String {
-        MockMoneyFormat.signedUQC(minorUnits: amountMinorUnits)
+        MoneyFormat.signedUQC(minorUnits: amountMinorUnits)
     }
 }
 
-struct MockCampusSnapshot {
+struct CampusSnapshot {
     let currentUserName: String
     let availableBalanceMinorUnits: Int
-    let peers: [MockPeer]
-    let transactions: [MockTransactionRow]
+    let peers: [Peer]
+    let transactions: [TransactionRow]
 
     var availableBalanceText: String {
-        MockMoneyFormat.uqc(minorUnits: availableBalanceMinorUnits)
+        MoneyFormat.uqc(minorUnits: availableBalanceMinorUnits)
     }
 
-    var recentTransactions: [MockTransactionRow] {
+    var recentTransactions: [TransactionRow] {
         Array(transactions.prefix(3))
     }
 }
 
-enum MockMoneyFormat {
+enum MoneyFormat {
     static func uqc(minorUnits: Int) -> String {
         let negative = minorUnits < 0
         let absolute = abs(minorUnits)

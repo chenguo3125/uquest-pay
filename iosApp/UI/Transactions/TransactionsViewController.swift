@@ -2,7 +2,7 @@ import UIKit
 
 final class TransactionsViewController: UIViewController {
     private let service: PaymentService
-    private var snapshot: MockCampusSnapshot
+    private var snapshot: CampusSnapshot
     private let tableView = UITableView(frame: .zero, style: .plain)
 
     init(service: PaymentService) {

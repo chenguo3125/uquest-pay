@@ -2,7 +2,7 @@ import UIKit
 
 final class DashboardViewController: UIViewController {
     private let service: PaymentService
-    private var snapshot: MockCampusSnapshot
+    private var snapshot: CampusSnapshot
 
     private let balanceTitleLabel = UILabel()
     private let balanceValueLabel = UILabel()

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		AA0000000000000000000001 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000001 /* AppDelegate.swift */; };
 		AA0000000000000000000002 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000002 /* SceneDelegate.swift */; };
-		AA0000000000000000000003 /* MockCampusData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000003 /* MockCampusData.swift */; };
+		AA0000000000000000000003 /* CampusModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000003 /* CampusModels.swift */; };
 		AA0000000000000000000004 /* TransactionRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000004 /* TransactionRowCell.swift */; };
 		AA0000000000000000000005 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000005 /* DashboardViewController.swift */; };
 		AA0000000000000000000006 /* TransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0000000000000000000006 /* TransferViewController.swift */; };
@@ -21,7 +21,7 @@
 /* Begin PBXFileReference section */
 		BB0000000000000000000001 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB0000000000000000000002 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BB0000000000000000000003 /* MockCampusData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockCampusData.swift; sourceTree = "<group>"; };
+		BB0000000000000000000003 /* CampusModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampusModels.swift; sourceTree = "<group>"; };
 		BB0000000000000000000004 /* TransactionRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionRowCell.swift; sourceTree = "<group>"; };
 		BB0000000000000000000005 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewController.swift; sourceTree = "<group>"; };
 		BB0000000000000000000006 /* TransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferViewController.swift; sourceTree = "<group>"; };
@@ -67,7 +67,7 @@
 		DD0000000000000000000003 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				BB0000000000000000000003 /* MockCampusData.swift */,
+				BB0000000000000000000003 /* CampusModels.swift */,
 				BB0000000000000000000004 /* TransactionRowCell.swift */,
 				DD0000000000000000000005 /* Dashboard */,
 				DD0000000000000000000006 /* Transfer */,
@@ -188,7 +188,7 @@
 			files = (
 				AA0000000000000000000001 /* AppDelegate.swift in Sources */,
 				AA0000000000000000000002 /* SceneDelegate.swift in Sources */,
-				AA0000000000000000000003 /* MockCampusData.swift in Sources */,
+				AA0000000000000000000003 /* CampusModels.swift in Sources */,
 				AA0000000000000000000004 /* TransactionRowCell.swift in Sources */,
 				AA0000000000000000000005 /* DashboardViewController.swift in Sources */,
 				AA0000000000000000000006 /* TransferViewController.swift in Sources */,
